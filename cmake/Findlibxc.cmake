@@ -49,13 +49,13 @@ if (NOT libxc_FOUND)
 
     ExternalProject_Add(libxc
 
-            GIT_REPOSITORY https://gitlab.com/libxc/libxc.git
-            GIT_TAG 5.2.3
-            GIT_SHALLOW ON
-            GIT_PROGRESS ON
+            # GIT_REPOSITORY https://gitlab.com/libxc/libxc.git
+            # GIT_TAG 5.2.3
+            # GIT_SHALLOW ON
+            # GIT_PROGRESS ON
 
             SOURCE_DIR ${_src}
-            DOWNLOAD_DIR ${_src}
+            # DOWNLOAD_DIR ${_src}
             BUILD_IN_SOURCE true
             CONFIGURE_COMMAND ${AUTORECONF_EXECUTABLE} -i
             COMMAND ./configure --prefix=${_install} CC=${CMAKE_C_COMPILER}

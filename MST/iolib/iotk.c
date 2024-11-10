@@ -40,12 +40,12 @@ char lcase(char);
 void string_to_lcase(char *);
 void searchFile(const INTEGER *);
 
-void c_dtsize(INTEGER *intger4_size, INTEGER *real8_size) {
+void c_dtsize_(INTEGER *intger4_size, INTEGER *real8_size) {
      *intger4_size=sizeof(INTEGER);
      *real8_size=sizeof(double);
 }
 
-void c_gopen(INTEGER *findex, char *fname, INTEGER *fname_len, 
+void c_gopen_(INTEGER *findex, char *fname, INTEGER *fname_len, 
               char *fstatus, INTEGER *fstatus_len,
               char *fform, INTEGER *fform_len,
               INTEGER lfname, INTEGER lfstatus) {
@@ -127,7 +127,7 @@ void c_gopen(INTEGER *findex, char *fname, INTEGER *fname_len,
     *findex = pfl->index;
 }
 
-void c_close(const INTEGER *findex) {
+void c_close_(const INTEGER *findex) {
     struct FileListStruct *tfl;
  
     searchFile(findex);
@@ -193,7 +193,7 @@ char lcase(char c) {
     }
 }
 
-void c_string_padsize(INTEGER *findex, INTEGER *n, INTEGER *m) {
+void c_string_padsize_(INTEGER *findex, INTEGER *n, INTEGER *m) {
     searchFile(findex);
 
 #ifndef NoXDR_format
@@ -205,7 +205,7 @@ void c_string_padsize(INTEGER *findex, INTEGER *n, INTEGER *m) {
         *m = 0;
 }
 
-void c_fseek(INTEGER *findex, INTEGER *offset, INTEGER *whence) {
+void c_fseek_(INTEGER *findex, INTEGER *offset, INTEGER *whence) {
     searchFile(findex);
 
     if (*whence == 0) {
@@ -219,7 +219,7 @@ void c_fseek(INTEGER *findex, INTEGER *offset, INTEGER *whence) {
     exit(1);
 }
 
-void c_write_double(const INTEGER *findex, double *data, const INTEGER *n) {
+void c_write_double_(const INTEGER *findex, double *data, const INTEGER *n) {
     int j, success;
  
     searchFile(findex);
@@ -251,7 +251,7 @@ void c_write_double(const INTEGER *findex, double *data, const INTEGER *n) {
     exit(1);
 }
 
-void c_write_integer(const INTEGER *findex, INTEGER *data, const INTEGER *n) {
+void c_write_integer_(const INTEGER *findex, INTEGER *data, const INTEGER *n) {
     int j, success;
  
     searchFile(findex);
@@ -283,7 +283,7 @@ void c_write_integer(const INTEGER *findex, INTEGER *data, const INTEGER *n) {
     exit(1);
 }
 
-void c_write_string(const INTEGER *findex, char *data, const INTEGER *n,
+void c_write_string_(const INTEGER *findex, char *data, const INTEGER *n,
                      INTEGER *m, INTEGER data_length) {
     int j;
     char *ctmp;
@@ -317,7 +317,7 @@ void c_write_string(const INTEGER *findex, char *data, const INTEGER *n,
     exit(1);
 }
 
-void c_read_double(const INTEGER *findex, double *data, const INTEGER *n) {
+void c_read_double_(const INTEGER *findex, double *data, const INTEGER *n) {
     int j, success;
  
     searchFile(findex);
@@ -349,7 +349,7 @@ void c_read_double(const INTEGER *findex, double *data, const INTEGER *n) {
     exit(1);
 }
 
-void c_read_integer(const INTEGER *findex, INTEGER *data, const INTEGER *n) {
+void c_read_integer_(const INTEGER *findex, INTEGER *data, const INTEGER *n) {
     int j, success;
  
     searchFile(findex);
@@ -381,7 +381,7 @@ void c_read_integer(const INTEGER *findex, INTEGER *data, const INTEGER *n) {
     exit(1);
 }
 
-void c_read_string(const INTEGER *findex, char *data, const INTEGER *n,
+void c_read_string_(const INTEGER *findex, char *data, const INTEGER *n,
                     INTEGER *m, INTEGER data_length) {
     int j;
     char *ctmp;
@@ -438,3 +438,4 @@ void searchFile(const INTEGER *findex) {
     perror("Error in searchFile");
     exit(1);
 }
+

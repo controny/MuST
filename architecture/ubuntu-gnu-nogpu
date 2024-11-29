@@ -22,7 +22,7 @@ LIBXC_PATH  =
 FFTW_PATH   = 
 P3DFFT_PATH =
 LUA_PATH    =
-LIBS       += -L/usr/lib/x86_64-linux-gnu -lblas -llapack -lscalapack -ltirpc
+LIBS       += -L/usr/lib/x86_64-linux-gnu -lmkl_intel_lp64 -lmkl_core -lmkl_scalapack_lp64 -lmkl_blacs_intelmpi_lp64 -lmkl_sequential -lpthread -lm -ldl -ltirpc
 ADD_LIBS   += -L/usr/lib/gcc/x86_64-linux-gnu/7 -lgfortran -lm
 
 #=====================================================================
